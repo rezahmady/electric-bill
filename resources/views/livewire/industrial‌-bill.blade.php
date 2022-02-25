@@ -84,7 +84,7 @@
                           </thead>
                           <tbody>
                               @foreach ($table as $row)
-                              @if($type === '0' and $tropical !== null)
+                              @if($type == '0' and $tropical !== null)
                               <tr>
                                 <td class="border border-slate-300 bg-white p-4 text-slate-500">{{$row['label']}}</td>
                                 <td class="border border-slate-300 bg-white p-4 text-slate-500">{{$tropical}}</td>

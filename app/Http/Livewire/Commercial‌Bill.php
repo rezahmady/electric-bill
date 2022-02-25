@@ -296,7 +296,7 @@ class Commercial‌Bill extends Component implements Forms\Contracts\HasForms
             $this->sum_durations_with_ratio += $duration*$this->consumption_ratio[$key];
         }
 
-        if($this->type === '0' and $this->tropical !== null) {
+        if($this->type == '0' and $this->tropical !== null) {
             $this->sum_durations += $this->tropical; 
             $this->sum_durations_with_ratio += $this->tropical;
         }
@@ -323,7 +323,7 @@ class Commercial‌Bill extends Component implements Forms\Contracts\HasForms
             
             // بهای فصل
             $trapical_duration = $this->sum_durations - $form['none_tropical'];
-            if($this->type === '0' and $this->tropical !== null) {
+            if($this->type == '0' and $this->tropical !== null) {
                 $season_price = (($base_price + $this->price_peak - $this->price_low + $subscription)*$trapical_duration/$this->sum_durations)/5;
             } else {
                 $season_price = (($this->season_price*$trapical_duration/30)+($this->price_peak - $this->price_low + $subscription)*$trapical_duration/$this->sum_durations)/5;
@@ -357,7 +357,7 @@ class Commercial‌Bill extends Component implements Forms\Contracts\HasForms
 
     public function perPeriod($duration, $key) {
 
-        if($this->type === '0' and $this->tropical !== null) $duration += $this->tropical;
+        if($this->type == '0' and $this->tropical !== null) $duration += $this->tropical;
         
         $percent = $duration*$this->consumption_ratio[$key]/$this->sum_durations_with_ratio;
         
